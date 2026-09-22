@@ -4,32 +4,32 @@
 
 @layer base {
   :root {
-    --background: #f8fafc;
-    --foreground: #0f172a;
+    --background: #fbf9fe;
+    --foreground: #0d091b;
     --card: #ffffff;
-    --card-foreground: #0f172a;
-    --primary: #4f46e5;
+    --card-foreground: #0d091b;
+    --primary: #6d28d9;
     --primary-foreground: #ffffff;
-    --muted: #f1f5f9;
-    --muted-foreground: #64748b;
-    --accent: #eef2ff;
-    --accent-foreground: #4338ca;
-    --border: #e2e8f0;
+    --muted: #f4effc;
+    --muted-foreground: #6c5e85;
+    --accent: #f1e7fe;
+    --accent-foreground: #581c87;
+    --border: #e6dbf5;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: #090d16;
-    --foreground: #f8fafc;
-    --card: #111827;
-    --card-foreground: #f8fafc;
-    --primary: #6366f1;
+    --background: #070510;
+    --foreground: #f5f3ff;
+    --card: #0f0b20;
+    --card-foreground: #f5f3ff;
+    --primary: #7c3aed;
     --primary-foreground: #ffffff;
-    --muted: #1e293b;
-    --muted-foreground: #94a3b8;
-    --accent: #1e1e38;
-    --accent-foreground: #c7d2fe;
-    --border: #1f293d;
+    --muted: #15102c;
+    --muted-foreground: #a093be;
+    --accent: #231640;
+    --accent-foreground: #d8b4fe;
+    --border: #241a3d;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -47,17 +47,17 @@ body {
 
 /* Glassmorphism effects */
 .glass {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  border: 1px solid rgba(230, 219, 245, 0.85);
 }
 
 .dark .glass {
-  background: rgba(17, 24, 39, 0.75);
+  background: rgba(7, 5, 16, 0.55);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(31, 41, 61, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.18);
 }
 
 /* Custom Scrollbar */
@@ -71,19 +71,19 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.4);
+  background: rgba(160, 147, 190, 0.35);
   border-radius: 9999px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.2);
+  background: rgba(139, 92, 246, 0.25);
 }
 
-/* Subtle glow utilities */
+/* Cosmic purple glow utilities */
 .glow-primary {
-  box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 0 30px -5px rgba(124, 58, 237, 0.4);
 }
 
 .dark .glow-primary {
-  box-shadow: 0 0 35px -5px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 0 40px -5px rgba(139, 92, 246, 0.35);
 }

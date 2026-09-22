@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Mail, ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { AuthVisualPanel } from "@/components/auth/AuthVisualPanel";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -32,82 +33,108 @@ export default function ForgotPasswordPage() {
     }
   };
 
+  const inputClasses =
+    "w-full px-4 py-3 text-xs sm:text-sm rounded-xl bg-[#16102e] hover:bg-[#1a1338] focus:bg-[#1b143a] border border-purple-500/20 hover:border-purple-500/35 focus:border-primary-500 text-white placeholder:text-purple-300/40 focus:outline-none focus:ring-2 focus:ring-primary-500/25 transition-all";
+
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md space-y-6">
-        <div className="text-center space-y-2">
-          <h1 className="text-2xl font-semibold text-slate-900 dark:text-white tracking-tight">
-            Reset Your Password
-          </h1>
-          <p className="text-xs text-slate-500">
-            Enter your account email to generate a secure password reset link.
-          </p>
+    <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-3 sm:p-6 lg:p-8 bg-background relative overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-primary-600/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Main Split-Screen Container */}
+      <div className="w-full max-w-5xl rounded-[26px] sm:rounded-[32px] bg-[#0d091f]/95 dark:bg-[#0b081c]/95 border border-purple-500/20 shadow-[0_25px_80px_-15px_rgba(109,40,217,0.35)] backdrop-blur-xl p-3 sm:p-4 md:p-5 flex flex-col md:flex-row gap-4 md:gap-6 items-stretch relative z-10">
+        {/* Left Visual Panel */}
+        <div className="w-full md:w-[46%] lg:w-[44%] shrink-0">
+          <AuthVisualPanel
+            title={"Capturing Moments,\nCreating Memories"}
+            tagline="Seamless account recovery for your digital assets, downloads, and orders."
+          />
         </div>
 
-        <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl space-y-6">
+        {/* Right Form Panel */}
+        <div className="flex-1 flex flex-col justify-center px-4 py-6 sm:px-8 sm:py-8 md:px-6 md:py-10 lg:px-10">
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-tight">
+              Reset Your Password
+            </h1>
+            <p className="text-xs sm:text-sm text-purple-200/60 mt-1.5 font-normal">
+              Remember your password?{" "}
+              <Link
+                href="/login"
+                className="text-primary-400 hover:text-primary-300 font-semibold underline underline-offset-4 decoration-primary-500/40 hover:decoration-primary-300 transition-all"
+              >
+                Back to sign in
+              </Link>
+            </p>
+          </div>
+
           {error && (
-            <div className="p-3 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-xs text-red-600 dark:text-red-400 flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            <div className="mb-5 p-3 rounded-xl bg-red-500/10 border border-red-500/25 text-xs text-red-300 flex items-center gap-2.5">
+              <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-400" />
               <span>{error}</span>
             </div>
           )}
 
           {success ? (
-            <div className="space-y-4 text-center">
-              <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-6 h-6" />
+            <div className="space-y-4">
+              <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 flex-shrink-0 text-emerald-400 mt-0.5" />
+                <div className="text-xs space-y-1">
+                  <p className="font-semibold text-emerald-200">Reset instructions generated!</p>
+                  <p className="text-emerald-300/80">{success.message}</p>
+                </div>
               </div>
-              <p className="text-xs text-slate-600 dark:text-slate-300">
-                {success.message}
-              </p>
+
               {success.resetUrl && (
-                <div className="p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 text-xs text-left space-y-1.5">
-                  <span className="font-bold text-primary block">Demo Reset Link Generated:</span>
+                <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-500/30 text-xs space-y-2">
+                  <span className="font-bold text-primary-300 block">Demo Reset Link:</span>
                   <Link
                     href={success.resetUrl}
-                    className="text-indigo-600 dark:text-indigo-400 underline break-all font-mono text-[11px]"
+                    className="text-primary-400 hover:text-primary-300 underline break-all font-mono text-[11px]"
                   >
-                    Click here to reset password
+                    Click here to complete password reset
                   </Link>
                 </div>
               )}
+
+              <Link
+                href="/login"
+                className="inline-block w-full py-3.5 rounded-xl bg-[#16102e] hover:bg-[#1f1642] border border-purple-500/25 text-center text-xs font-semibold text-white transition-all"
+              >
+                Return to Sign In
+              </Link>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                  Email Address
-                </label>
-                <div className="relative">
-                  <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-                  <input
-                    type="email"
-                    placeholder="name@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/40"
-                  />
-                </div>
+                <input
+                  type="email"
+                  placeholder="Enter your registered e-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className={inputClasses}
+                />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3.5 rounded-xl bg-primary hover:bg-primary-600 text-white text-xs font-bold shadow-lg shadow-primary/25 transition-all hover:scale-[1.02] disabled:opacity-50"
+                className="w-full mt-2 py-3.5 rounded-xl bg-primary-600 hover:bg-primary-500 active:scale-[0.99] text-white text-xs sm:text-sm font-bold shadow-[0_4px_25px_rgba(124,58,237,0.4)] hover:shadow-[0_6px_30px_rgba(124,58,237,0.55)] transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2"
               >
-                {loading ? "Generating Link..." : "Send Reset Instructions"}
+                {loading ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Sending instructions...</span>
+                  </>
+                ) : (
+                  <span>Send Reset Instructions</span>
+                )}
               </button>
             </form>
           )}
         </div>
-
-        <p className="text-center text-xs text-slate-500">
-          Remember your credentials?{" "}
-          <Link href="/login" className="text-primary font-bold hover:underline">
-            Back to sign in
-          </Link>
-        </p>
       </div>
     </div>
   );

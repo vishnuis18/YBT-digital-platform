@@ -56,14 +56,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {/* Logo */}
           <div className="h-16 px-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <Link href="/admin/dashboard" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-600 to-violet-700 flex items-center justify-center text-white shadow-sm">
                 <Shield className="w-4 h-4" />
               </div>
               <span className="font-extrabold text-sm text-slate-900 dark:text-white tracking-tight">
                 YBT Admin
               </span>
             </Link>
-            <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-indigo-100 dark:bg-indigo-950 text-primary">
+            <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-primary/10 dark:bg-primary/20 text-primary">
               {user?.role || "PORTAL"}
             </span>
           </div>

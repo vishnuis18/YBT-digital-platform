@@ -148,7 +148,7 @@ export default function UserSupportPage() {
                   onClick={() => setActiveTicket(t)}
                   className={`w-full text-left p-4 sm:p-5 transition-all flex flex-col justify-between ${
                     activeTicket?._id === t._id
-                      ? "bg-indigo-50/70 dark:bg-indigo-950/40 border-l-4 border-primary"
+                      ? "bg-primary/10 dark:bg-primary/20 border-l-4 border-primary"
                       : "hover:bg-slate-50 dark:hover:bg-slate-800/50"
                   }`}
                 >
@@ -161,7 +161,7 @@ export default function UserSupportPage() {
                         t.status === "resolved"
                           ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
                           : t.status === "in_progress"
-                          ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300"
+                          ? "bg-primary/20 text-primary dark:bg-primary/30 dark:text-purple-300"
                           : "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300"
                       }`}
                     >

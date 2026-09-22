@@ -318,7 +318,7 @@ function CheckoutContent() {
                   key={gw.id}
                   className={`p-4 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between ${
                     paymentGateway === gw.id
-                      ? "border-primary bg-indigo-50/50 dark:bg-indigo-950/30 ring-2 ring-primary/30"
+                      ? "border-primary bg-primary/10 dark:bg-primary/20 ring-2 ring-primary/30"
                       : "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white dark:bg-slate-900"
                   }`}
                 >

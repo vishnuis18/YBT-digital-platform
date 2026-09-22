@@ -77,7 +77,7 @@ export default function AdminAnalyticsPage() {
           <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mt-1">
             {salesReport.reduce((sum, r) => sum + r.sales, 0)} items
           </h3>
-          <span className="text-[11px] text-indigo-500 font-bold mt-1 block">
+          <span className="text-[11px] text-primary font-bold mt-1 block">
             Digital Downloads
           </span>
         </div>
@@ -113,7 +113,7 @@ export default function AdminAnalyticsPage() {
                 </div>
                 <div
                   style={{ height: `${heightPercent}%` }}
-                  className="w-full bg-gradient-to-t from-indigo-600 to-indigo-400 group-hover:from-indigo-500 group-hover:to-purple-400 rounded-t-md transition-all duration-200"
+                  className="w-full bg-gradient-to-t from-purple-600 to-violet-400 group-hover:from-purple-500 group-hover:to-violet-300 rounded-t-md transition-all duration-200"
                 />
                 <span className="text-[9px] text-slate-400 mt-1 truncate max-w-[30px] hidden sm:inline-block">
                   {day.date.slice(5)}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ProductService } from "@/services/product.service";
 import { FAQService } from "@/services/faq.service";
 import { ProductGrid } from "@/components/products/ProductGrid";
+import { TrustedClients } from "@/components/home/TrustedClients";
 import {
   Sparkles,
   ArrowRight,
@@ -37,63 +38,54 @@ export default async function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 1. Hero Section */}
-      <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 border-b border-slate-200/80 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-950/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* 1. Hero Section matching reference image */}
+      <section className="relative overflow-hidden min-h-screen -mt-14 md:-mt-16 pt-20 md:pt-24 pb-8 sm:pb-12 flex flex-col justify-center border-b border-purple-900/20 bg-[#070510] text-white">
+        {/* User-provided Cosmic Spotlight & Curved Horizon Background */}
+        <div className="absolute inset-0 pointer-events-none select-none z-0">
+          <Image
+            src="/hero-bg.png"
+            alt="Hero Glow Background"
+            fill
+            priority
+            quality={100}
+            className="object-cover object-center"
+          />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 w-full flex flex-col items-center justify-center my-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#181232]/80 border border-purple-500/30 text-purple-200 text-xs font-medium mb-4 sm:mb-5 backdrop-blur-md shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-purple-300" />
             <span>Next-Generation Digital Marketplace</span>
           </div>
 
-          {/* Heading */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto leading-[1.15]">
-            Supercharge Your Next Project With{" "}
-            <span className="text-primary">
-              Premium Digital Assets
-            </span>
+          {/* Heading with modern bold sans font matching reference */}
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-white tracking-tight max-w-5xl mx-auto leading-[1.12]">
+            Supercharge Your Next Project<br className="hidden sm:inline" />{" "}
+            With <span className="text-[#a78bfa] dark:text-[#bda4fd]">Premium Digital Assets</span>
           </h1>
 
-          <p className="mt-5 text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-xs sm:text-sm md:text-base text-zinc-300 max-w-2xl mx-auto leading-relaxed">
             Production-ready Next.js SaaS boilerplates, Figma design systems, full-stack templates, and APIs. Instant download with lifetime updates.
           </p>
 
-          {/* Action CTAs */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-md mx-auto">
+          {/* Action CTA matching reference */}
+          <div className="mt-6 flex justify-center">
             <Link
               href="/products"
-              className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-primary hover:bg-primary-600 text-white text-sm font-bold shadow-xl shadow-primary/30 hover:shadow-primary/40 flex items-center justify-center gap-2 transition-all hover:scale-105"
+              className="px-8 py-3.5 rounded-2xl bg-[#542d91] hover:bg-[#6334ad] text-white text-sm font-semibold shadow-lg shadow-purple-950/70 hover:shadow-purple-900/50 flex items-center justify-center gap-2.5 transition-all duration-200 hover:scale-[1.02]"
             >
               Explore Products <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="/faq"
-              className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/80 text-sm font-bold shadow-sm transition-all"
-            >
-              How It Works
-            </Link>
           </div>
 
-          {/* Trust points */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 dark:text-slate-400 font-medium">
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              <span>Instant Digital Downloads</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              <span>Commercial License Included</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-              <span>100% Secure Checkout</span>
-            </div>
-          </div>
+          {/* Trusted Clients row */}
+          <TrustedClients />
         </div>
       </section>
 
       {/* 2. Categories Highlight */}
-      <section className="py-12 bg-white dark:bg-slate-900/40 border-b border-slate-200/80 dark:border-slate-800/80">
+      <section className="py-12 bg-white dark:bg-[#0a0718] border-b border-slate-200/80 dark:border-[#221a3d]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
             {[
@@ -108,9 +100,9 @@ export default async function HomePage() {
                 <Link
                   key={cat.slug}
                   href={`/products?category=${cat.slug}`}
-                  className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-md transition-all group flex flex-col items-center text-center"
+                  className="p-4 rounded-2xl bg-slate-50 dark:bg-[#120e26] border border-slate-200/80 dark:border-[#241a3d] hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-md transition-all group flex flex-col items-center text-center"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h4 className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">
@@ -149,13 +141,13 @@ export default async function HomePage() {
       </section>
 
       {/* 4. Testimonials Section */}
-      <section className="py-16 bg-slate-100/70 dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80">
+      <section className="py-16 bg-purple-50/40 dark:bg-[#0c081e] border-y border-purple-100/80 dark:border-[#22183c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-white tracking-tight">
               Loved by 5,000+ Developers & Founders
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 mt-2">
               See what creators and engineering teams have built with our digital products.
             </p>
           </div>
@@ -186,7 +178,7 @@ export default async function HomePage() {
             ].map((testi, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-white dark:bg-[#110d26] border border-purple-100/80 dark:border-[#241a3d] shadow-sm flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-1 mb-3 text-amber-400">
@@ -194,11 +186,11 @@ export default async function HomePage() {
                       <Star key={i} className="w-4 h-4 fill-amber-400" />
                     ))}
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed italic">
                     "{testi.content}"
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+                <div className="mt-6 pt-4 border-t border-purple-50 dark:border-[#241a3d] flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-primary/10 text-primary border border-primary/20 font-bold flex items-center justify-center text-xs">
                     {testi.name.charAt(0)}
                   </div>
@@ -230,7 +222,7 @@ export default async function HomePage() {
           {faqs.map((faq) => (
             <details
               key={faq._id}
-              className="group p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 transition-colors open:border-primary/40"
+              className="group p-5 rounded-2xl bg-white dark:bg-[#110d26] border border-purple-100/80 dark:border-[#241a3d] transition-colors open:border-primary/40"
             >
               <summary className="font-bold text-sm sm:text-base text-slate-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
                 <span>{faq.question}</span>
@@ -238,7 +230,7 @@ export default async function HomePage() {
                   <ChevronRight className="w-5 h-5" />
                 </span>
               </summary>
-              <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
                 {faq.answer}
               </p>
             </details>
@@ -248,8 +240,8 @@ export default async function HomePage() {
 
       {/* 6. Call to Action Banner */}
       <section className="pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 sm:p-14 text-center shadow-sm">
-          <div className="max-w-2xl mx-auto">
+        <div className="rounded-3xl bg-white dark:bg-[#110d26] border border-purple-100 dark:border-[#241a3d] p-8 sm:p-14 text-center shadow-sm relative overflow-hidden">
+          <div className="max-w-2xl mx-auto relative z-10">
             <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-white tracking-tight">
               Ready to ship your product 10x faster?
             </h2>

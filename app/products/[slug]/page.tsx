@@ -170,7 +170,7 @@ export default async function ProductDetailPage({
           <div className="sticky top-24 p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xl space-y-6">
             <div>
               <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="px-3 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-primary text-xs font-bold uppercase tracking-wider">
+                <span className="px-3 py-1 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
                   {categoryName}
                 </span>
                 <div className="flex items-center gap-1.5 text-xs font-bold text-amber-500">

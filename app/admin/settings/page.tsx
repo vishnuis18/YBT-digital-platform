@@ -109,7 +109,7 @@ export default function AdminSettingsPage() {
         <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-primary flex items-center justify-center">
+              <div className="w-10 h-10 rounded-2xl bg-primary/10 dark:bg-primary/20 text-primary flex items-center justify-center">
                 <CreditCard className="w-5 h-5" />
               </div>
               <div>
@@ -132,7 +132,7 @@ export default function AdminSettingsPage() {
                     payment: { ...settings.payment, activeGateway: e.target.value as any },
                   })
                 }
-                className="px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-primary font-bold text-xs focus:outline-none cursor-pointer"
+                className="px-3 py-1.5 rounded-xl bg-primary/10 dark:bg-primary/20 border border-primary/20 text-primary font-bold text-xs focus:outline-none cursor-pointer"
               >
                 <option value="demo">⚡ Demo Mode (Development & Testing)</option>
                 <option value="stripe">Stripe Payments</option>

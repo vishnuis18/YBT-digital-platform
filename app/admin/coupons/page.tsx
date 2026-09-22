@@ -127,7 +127,7 @@ export default function AdminCouponsPage() {
               {coupons.map((c) => (
                 <tr key={c._id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
                   <td className="p-4">
-                    <span className="font-mono font-black text-slate-900 dark:text-white px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-primary">
+                    <span className="font-mono font-black text-slate-900 dark:text-white px-2.5 py-1 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary">
                       {c.code}
                     </span>
                   </td>

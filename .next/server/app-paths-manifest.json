@@ -1,9 +1,9 @@
 {
   "/api/products/route": "app/api/products/route.js",
-  "/page": "app/page.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js",
   "/products/page": "app/products/page.js",
   "/contact/page": "app/contact/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(user)/checkout/page": "app/(user)/checkout/page.js",
-  "/products/[slug]/page": "app/products/[slug]/page.js"
+  "/(auth)/signup/page": "app/(auth)/signup/page.js",
+  "/page": "app/page.js",
+  "/faq/page": "app/faq/page.js"
 }

@@ -60,7 +60,7 @@ export default function AdminDashboardPage() {
       value: metrics.totalOrders,
       desc: "Digital purchases completed",
       icon: ShoppingBag,
-      color: "from-indigo-500 to-purple-600",
+      color: "from-purple-600 to-violet-700",
     },
     {
       title: "Registered Users",
@@ -109,7 +109,7 @@ export default function AdminDashboardPage() {
                 <p className="text-[11px] text-slate-400 mt-0.5">{card.desc}</p>
               </div>
               <div
-                className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${card.color} text-white flex items-center justify-center shadow-lg shadow-indigo-500/10 flex-shrink-0`}
+                className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${card.color} text-white flex items-center justify-center shadow-lg shadow-purple-500/10 flex-shrink-0`}
               >
                 <Icon className="w-6 h-6" />
               </div>
@@ -120,16 +120,16 @@ export default function AdminDashboardPage() {
 
       {/* Secondary Metrics (Taxes, Discounts) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="p-5 rounded-3xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/50 flex items-center justify-between">
+        <div className="p-5 rounded-3xl bg-primary/10 dark:bg-primary/20 border border-primary/20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center">
               <Receipt className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-bold text-indigo-950 dark:text-indigo-200">
+              <span className="text-xs font-bold text-purple-950 dark:text-purple-200">
                 GST / VAT Tax Collected
               </span>
-              <p className="text-lg font-bold text-indigo-900 dark:text-white">
+              <p className="text-lg font-bold text-primary dark:text-white">
                 {formatPrice(metrics.totalTaxCollected)}
               </p>
             </div>

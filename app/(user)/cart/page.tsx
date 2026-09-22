@@ -246,7 +246,7 @@ export default function CartPage() {
                 <span>Encrypted 256-bit Secure Checkout</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-indigo-500" />
+                <Zap className="w-4 h-4 text-primary" />
                 <span>Instant download token delivered immediately</span>
               </div>
             </div>

@@ -16,7 +16,7 @@ export default async function FAQPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-primary text-xs font-bold mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary text-xs font-bold mb-4">
           <HelpCircle className="w-3.5 h-3.5" />
           <span>Knowledge & Help Center</span>
         </div>

@@ -11,13 +11,13 @@ export function MobileAppBar() {
   const { user, logout } = useAuth();
 
   return (
-    <div className="md:hidden sticky top-0 z-30 w-full glass border-b border-slate-200/80 dark:border-slate-800/80 px-4 py-3 flex items-center justify-between">
+    <div className="md:hidden sticky top-0 z-30 w-full bg-white/60 dark:bg-[#070510]/55 backdrop-blur-md border-b border-slate-200/80 dark:border-[#22183c] px-4 py-3 flex items-center justify-between transition-colors">
       <Link href="/" className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-sm">
+        <div className="w-8 h-8 rounded-lg bg-[#6432a3] flex items-center justify-center text-white shadow-sm">
           <Sparkles className="w-4 h-4" />
         </div>
         <span className="font-semibold text-base tracking-tight text-slate-900 dark:text-white">
-          YBT <span className="text-primary font-bold">Digital</span>
+          <span className="text-[#9d7cf4] dark:text-[#b49bfa] font-bold">YBT</span> Digital
         </span>
       </Link>
 
@@ -25,7 +25,7 @@ export function MobileAppBar() {
         <ThemeToggle />
         <button
           onClick={() => setDrawerOpen(!drawerOpen)}
-          className="p-2 rounded-xl text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 focus:outline-none"
+          className="p-2 rounded-xl text-slate-700 dark:text-zinc-200 bg-slate-100 dark:bg-[#16112d] border border-slate-200/60 dark:border-[#2b1f48] focus:outline-none"
           aria-label="Toggle Menu"
         >
           {drawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -33,12 +33,12 @@ export function MobileAppBar() {
       </div>
 
       {drawerOpen && (
-        <div className="fixed inset-0 top-14 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-6 flex flex-col justify-between animate-in fade-in-50">
+        <div className="fixed inset-0 top-14 z-40 bg-white/95 dark:bg-[#0c081e]/95 backdrop-blur-md p-6 flex flex-col justify-between animate-in fade-in-50">
           <div className="space-y-4">
             <Link
               href="/products"
               onClick={() => setDrawerOpen(false)}
-              className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 font-semibold text-slate-900 dark:text-white"
+              className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-[#15102c] font-semibold text-slate-900 dark:text-white"
             >
               <Search className="w-5 h-5 text-primary" />
               Search & Browse Catalog
@@ -46,7 +46,7 @@ export function MobileAppBar() {
             <Link
               href="/faq"
               onClick={() => setDrawerOpen(false)}
-              className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 font-semibold text-slate-900 dark:text-white"
+              className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-[#15102c] font-semibold text-slate-900 dark:text-white"
             >
               <FileText className="w-5 h-5 text-primary" />
               Frequently Asked Questions
@@ -54,7 +54,7 @@ export function MobileAppBar() {
             <Link
               href="/contact"
               onClick={() => setDrawerOpen(false)}
-              className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 font-semibold text-slate-900 dark:text-white"
+              className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-[#15102c] font-semibold text-slate-900 dark:text-white"
             >
               <LifeBuoy className="w-5 h-5 text-primary" />
               Customer Support
@@ -64,7 +64,7 @@ export function MobileAppBar() {
               <Link
                 href="/admin/dashboard"
                 onClick={() => setDrawerOpen(false)}
-                className="flex items-center gap-3 p-3 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 font-bold text-indigo-600 dark:text-indigo-400"
+                className="flex items-center gap-3 p-3 rounded-2xl bg-primary/10 font-bold text-primary"
               >
                 <Shield className="w-5 h-5" />
                 Admin Dashboard

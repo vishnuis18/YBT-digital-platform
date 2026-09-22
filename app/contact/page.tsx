@@ -61,12 +61,12 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="p-6 rounded-3xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/80 dark:border-indigo-800 text-xs space-y-2">
-            <h4 className="font-semibold text-indigo-900 dark:text-indigo-200 flex items-center gap-1.5">
+          <div className="p-6 rounded-3xl bg-primary/10 dark:bg-primary/20 border border-primary/20 text-xs space-y-2">
+            <h4 className="font-semibold text-primary dark:text-purple-200 flex items-center gap-1.5">
               <LifeBuoy className="w-4 h-4 text-primary" />
               Existing Customer Support
             </h4>
-            <p className="text-indigo-700 dark:text-indigo-300 leading-relaxed">
+            <p className="text-purple-800 dark:text-purple-300 leading-relaxed">
               If you have already purchased an asset and need product assistance, please log in and submit a ticket via the Customer Support Center.
             </p>
           </div>

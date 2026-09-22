@@ -51,10 +51,10 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-slate-900 text-slate-100">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-[#070510] text-slate-100">
       <div className="w-full max-w-md space-y-6">
         <div className="text-center space-y-2">
-          <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white mx-auto shadow-xl shadow-indigo-600/30">
+          <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-white mx-auto shadow-xl shadow-primary/30">
             <Shield className="w-7 h-7" />
           </div>
           <h1 className="text-2xl font-semibold tracking-tight text-white">
@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
           </p>
         </div>
 
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-800/90 border border-slate-700 shadow-2xl space-y-6">
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#0f0b20] border border-[#241a3d] shadow-2xl space-y-6">
           {error && (
             <div className="p-3.5 rounded-2xl bg-red-950/60 border border-red-800 text-xs text-red-300 flex items-center gap-2">
               <AlertCircle className="w-4 h-4 flex-shrink-0" />
@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-[#15102c] border border-[#2b1f48] text-white focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function AdminLoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl bg-[#15102c] border border-[#2b1f48] text-white focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
             </div>
@@ -111,14 +111,14 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/30 transition-all hover:scale-[1.02] disabled:opacity-50"
+              className="w-full py-3.5 rounded-xl bg-primary hover:bg-primary-600 text-white text-xs font-bold shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] disabled:opacity-50"
             >
               {loading ? "Authenticating..." : "Sign In to Admin Portal"}
             </button>
           </form>
 
           {/* Preset Buttons for Demo / Testing */}
-          <div className="pt-4 border-t border-slate-700 space-y-2">
+          <div className="pt-4 border-t border-[#241a3d] space-y-2">
             <span className="text-[11px] text-slate-400 font-semibold block">
               Quick Role Switcher (Development):
             </span>
@@ -126,7 +126,7 @@ export default function AdminLoginPage() {
               <button
                 type="button"
                 onClick={handleFillSuperAdmin}
-                className="py-2 px-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-xs font-bold text-slate-200 transition-colors text-left flex items-center justify-between"
+                className="py-2 px-3 rounded-xl bg-[#1c1538] hover:bg-[#251c4a] text-xs font-bold text-slate-200 transition-colors text-left flex items-center justify-between"
               >
                 <span>Super Admin</span>
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
@@ -134,10 +134,10 @@ export default function AdminLoginPage() {
               <button
                 type="button"
                 onClick={handleFillEditor}
-                className="py-2 px-3 rounded-xl bg-slate-700 hover:bg-slate-600 text-xs font-bold text-slate-200 transition-colors text-left flex items-center justify-between"
+                className="py-2 px-3 rounded-xl bg-[#1c1538] hover:bg-[#251c4a] text-xs font-bold text-slate-200 transition-colors text-left flex items-center justify-between"
               >
                 <span>Content Editor</span>
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                <Sparkles className="w-3.5 h-3.5 text-primary" />
               </button>
             </div>
           </div>
