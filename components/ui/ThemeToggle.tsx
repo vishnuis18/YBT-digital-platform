@@ -23,7 +23,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`p-2 rounded-xl text-slate-600 hover:text-slate-900 dark:text-zinc-300 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-[#16112d] dark:hover:bg-[#1d163a] border border-slate-200/60 dark:border-[#2b1f48] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 ${className}`}
+      className={`p-2 rounded-xl text-slate-600 hover:text-slate-900 dark:text-zinc-300 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-[#140e2d] dark:hover:bg-[#1d143f] border border-slate-200/60 dark:border-purple-500/25 hover:border-purple-500/40 transition-all duration-200 focus:outline-none ${className}`}
       aria-label="Toggle Dark Mode"
       title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
     >
