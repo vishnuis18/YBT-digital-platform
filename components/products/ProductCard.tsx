@@ -120,8 +120,8 @@ export function ProductCard({
     <div
       className={`group relative flex flex-col rounded-[28px] sm:rounded-[32px] bg-white dark:bg-[#100b24] transition-all duration-300 p-3 sm:p-4 overflow-hidden ${
         isFeaturedDeck
-          ? "border-2 border-purple-500/70 shadow-2xl shadow-purple-950/60 scale-[1.02]"
-          : "border border-slate-200/80 dark:border-purple-500/40 hover:border-primary/50 dark:hover:border-purple-400/70 shadow-md hover:shadow-2xl hover:-translate-y-1"
+          ? "border-[1.5px] border-purple-500/80 dark:border-purple-400/80 shadow-2xl shadow-purple-950/40 scale-[1.01]"
+          : "border-[1.5px] border-purple-300/70 dark:border-purple-400/60 hover:border-purple-400 dark:hover:border-purple-300/80 shadow-md hover:shadow-xl hover:-translate-y-0.5"
       }`}
     >
       {/* Thumbnail */}
@@ -168,46 +168,41 @@ export function ProductCard({
             </h3>
           </Link>
 
-          {/* Description Snippet matching sample */}
-          <div className="mt-2">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 block mb-0.5">
-              Description
-            </span>
-            <p className="text-xs text-slate-600 dark:text-zinc-300 line-clamp-2 leading-relaxed">
-              {product.shortDescription}
-            </p>
-          </div>
+          {/* Description Snippet */}
+          <p className="mt-2 text-xs text-slate-600 dark:text-zinc-300 line-clamp-2 leading-relaxed">
+            {product.shortDescription}
+          </p>
 
-          {/* 3 Metrics Stats Row matching sample (Distance / Temp / Rating style) */}
-          <div className="grid grid-cols-3 gap-2 mt-3.5 py-2 px-2.5 rounded-xl bg-slate-50 dark:bg-purple-950/30 border border-slate-100 dark:border-purple-900/30 text-center">
+          {/* 3 Metrics Stats Row */}
+          <div className="grid grid-cols-3 gap-2 mt-3.5 py-2 px-2.5 rounded-xl bg-slate-50 dark:bg-[#150f30]/60 border border-slate-100 dark:border-purple-900/30 text-center">
             <div>
-              <span className="text-[9px] uppercase font-bold text-slate-400 dark:text-zinc-500 block">Rating</span>
-              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 flex items-center justify-center gap-0.5 mt-0.5">
+              <span className="text-[9px] uppercase font-semibold text-slate-400 dark:text-zinc-400 block">Rating</span>
+              <span className="text-xs font-bold text-amber-500 dark:text-amber-400 flex items-center justify-center gap-0.5 mt-0.5">
                 ★ {product.rating.toFixed(1)}
               </span>
             </div>
             <div className="border-x border-slate-200 dark:border-purple-900/40">
-              <span className="text-[9px] uppercase font-bold text-slate-400 dark:text-zinc-500 block">Format</span>
-              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 truncate block px-0.5 mt-0.5">
+              <span className="text-[9px] uppercase font-semibold text-slate-400 dark:text-zinc-400 block">Format</span>
+              <span className="text-xs font-semibold text-slate-800 dark:text-purple-200 truncate block px-0.5 mt-0.5">
                 {product.tags?.[0] || "Digital"}
               </span>
             </div>
             <div>
-              <span className="text-[9px] uppercase font-bold text-slate-400 dark:text-zinc-500 block">Delivery</span>
-              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 block mt-0.5">
+              <span className="text-[9px] uppercase font-semibold text-slate-400 dark:text-zinc-400 block">Delivery</span>
+              <span className="text-xs font-semibold text-slate-800 dark:text-purple-200 block mt-0.5">
                 Instant
               </span>
             </div>
           </div>
         </div>
 
-        {/* Pricing and Circular Action Buttons matching sample */}
-        <div className="mt-4 pt-3 border-t border-slate-100 dark:border-purple-900/30 flex items-center justify-between">
+        {/* Pricing and Action Buttons */}
+        <div className="mt-4 pt-3 border-t border-slate-100 dark:border-purple-900/25 flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-500 block">
-              Total Price
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-zinc-400 block">
+              Price
             </span>
-            <div className="flex items-baseline gap-1.5">
+            <div className="flex items-baseline gap-1.5 mt-0.5">
               <span className="text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight">
                 {formatPrice(currentPrice)}
               </span>
@@ -225,7 +220,7 @@ export function ProductCard({
                 e.stopPropagation();
                 addItem(product);
               }}
-              className="w-10 h-10 rounded-full bg-slate-950 dark:bg-primary text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-md shadow-slate-950/20 dark:shadow-purple-900/40"
+              className="w-10 h-10 rounded-full bg-primary hover:bg-purple-700 dark:hover:bg-purple-600 text-white flex items-center justify-center active:scale-95 transition-all shadow-md shadow-purple-900/20 dark:shadow-purple-900/30"
               title="Add to Cart"
               aria-label="Add to Cart"
             >
@@ -234,7 +229,7 @@ export function ProductCard({
             <Link
               href={`/products/${product.slug}`}
               onClick={(e) => e.stopPropagation()}
-              className="w-10 h-10 rounded-full bg-slate-100 dark:bg-purple-950/50 border border-slate-200 dark:border-purple-800/40 text-slate-700 dark:text-purple-300 flex items-center justify-center hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-all hover:scale-105"
+              className="w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/40 text-purple-700 dark:text-purple-300 flex items-center justify-center hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-all active:scale-95"
               title="View Product"
             >
               <ArrowUpRight className="w-4 h-4" />

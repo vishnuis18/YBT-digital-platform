@@ -47,8 +47,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-heading)", "var(--font-inter)", "Inter", "system-ui", "sans-serif"],
-        heading: ["var(--font-heading)", "Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
+        sans: ["var(--font-heading)", "Plus Jakarta Sans", "system-ui", "-apple-system", "sans-serif"],
+        heading: ["var(--font-heading)", "Plus Jakarta Sans", "system-ui", "-apple-system", "sans-serif"],
       },
     },
   },

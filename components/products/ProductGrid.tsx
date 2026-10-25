@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { IProduct } from "@/types";
 import { ProductCard } from "./ProductCard";
-import { PackageOpen, ChevronLeft, ChevronRight, Play, Pause, Sparkles } from "lucide-react";
+import { PackageOpen, ChevronLeft, ChevronRight } from "lucide-react";
 
 export function ProductGrid({
   products,
@@ -162,7 +162,6 @@ export function ProductGrid({
   if (viewMode === "deck") {
     // Extended virtual products triplication (Set 0, Set 1, Set 2) to guarantee smooth linear flow
     const virtualItems = [...products, ...products, ...products];
-    const normalizedActiveIndex = ((virtualIndex % total) + total) % total;
 
     return (
       <div
@@ -202,65 +201,90 @@ export function ProductGrid({
         </div>
 
         {/* ================= 3D STACKED CAROUSEL STAGE ================= */}
-        <div className="relative w-full max-w-6xl h-[560px] sm:h-[600px] flex items-center justify-center z-10">
+        <div className="relative w-full max-w-7xl h-[560px] sm:h-[600px] flex items-center justify-center z-10 px-2 sm:px-4">
+          {/* Left Navigation Button (Move Left) */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 sm:left-4 lg:left-8 xl:left-12 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-purple-600 dark:bg-[#120a2e]/90 dark:hover:bg-[#6432a3] text-purple-700 hover:text-white dark:text-purple-200 dark:hover:text-white border border-purple-200/90 dark:border-purple-500/35 hover:border-purple-400/70 flex items-center justify-center transition-all shadow-xl shadow-purple-900/10 dark:shadow-black/70 hover:scale-110 active:scale-95 group backdrop-blur-md hover:shadow-[0_0_20px_rgba(168,85,247,0.35)]"
+            title="Move left"
+            aria-label="Previous product (Move left)"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-purple-700 group-hover:text-white dark:text-purple-200 group-hover:-translate-x-0.5 transition-transform" />
+          </button>
+
+          {/* Right Navigation Button (Move Right) */}
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 sm:right-4 lg:right-8 xl:right-12 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-purple-600 dark:bg-[#120a2e]/90 dark:hover:bg-[#6432a3] text-purple-700 hover:text-white dark:text-purple-200 dark:hover:text-white border border-purple-200/90 dark:border-purple-500/35 hover:border-purple-400/70 flex items-center justify-center transition-all shadow-xl shadow-purple-900/10 dark:shadow-black/70 hover:scale-110 active:scale-95 group backdrop-blur-md hover:shadow-[0_0_20px_rgba(168,85,247,0.35)]"
+            title="Move right"
+            aria-label="Next product (Move right)"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-purple-700 group-hover:text-white dark:text-purple-200 group-hover:translate-x-0.5 transition-transform" />
+          </button>
           {virtualItems.map((product, vIdx) => {
             const offset = vIdx - virtualIndex;
             const absOffset = Math.abs(offset);
 
-            // Outside the 5 active deck slots + 1 buffer slot: completely hide to save GPU cycles
+            // Outside the active deck slots: hide to save GPU cycles
             if (absOffset > 3) {
               return null;
             }
 
-            // Geometry calculations matching reference layout exactly (Upright, zero tilt, clean stepped offsets)
+            // Upright coverflow geometry with clean depth blur and spacing
             let translateX = "0%";
             let scale = 1;
             let zIndex = 30;
             let opacity = 1;
+            let filter = "blur(0px)";
             let shadowClass = "shadow-2xl";
 
             if (offset === 0) {
-              scale = 1.04;
+              scale = 1.02;
               zIndex = 30;
               opacity = 1;
               translateX = "0%";
-              shadowClass = "shadow-[0_30px_70px_-15px_rgba(0,0,0,0.95),0_0_40px_rgba(124,58,237,0.35)]";
+              filter = "blur(0px)";
+              shadowClass = "shadow-[0_24px_50px_-15px_rgba(0,0,0,0.85)]";
             } else if (offset === -1) {
               scale = 0.88;
               zIndex = 20;
-              opacity = 0.92;
-              translateX = "-62%";
-              shadowClass = "shadow-[0_20px_45px_-10px_rgba(0,0,0,0.85),0_0_25px_rgba(124,58,237,0.18)] hover:opacity-100";
+              opacity = 0.94;
+              translateX = "-52%";
+              filter = "blur(1.2px)";
+              shadowClass = "shadow-[0_16px_36px_-10px_rgba(0,0,0,0.75)] hover:opacity-100";
             } else if (offset === 1) {
               scale = 0.88;
               zIndex = 20;
-              opacity = 0.92;
-              translateX = "62%";
-              shadowClass = "shadow-[0_20px_45px_-10px_rgba(0,0,0,0.85),0_0_25px_rgba(124,58,237,0.18)] hover:opacity-100";
+              opacity = 0.94;
+              translateX = "52%";
+              filter = "blur(1.2px)";
+              shadowClass = "shadow-[0_16px_36px_-10px_rgba(0,0,0,0.75)] hover:opacity-100";
             } else if (offset === -2) {
               scale = 0.76;
               zIndex = 10;
-              opacity = 0.75;
-              translateX = "-118%";
-              shadowClass = "shadow-[0_15px_30px_-10px_rgba(0,0,0,0.7),0_0_15px_rgba(124,58,237,0.12)] hover:opacity-90";
+              opacity = 0.85;
+              translateX = "-88%";
+              filter = "blur(2.2px)";
+              shadowClass = "shadow-[0_12px_28px_-10px_rgba(0,0,0,0.65)] hover:opacity-100";
             } else if (offset === 2) {
               scale = 0.76;
               zIndex = 10;
-              opacity = 0.75;
-              translateX = "118%";
-              shadowClass = "shadow-[0_15px_30px_-10px_rgba(0,0,0,0.7),0_0_15px_rgba(124,58,237,0.12)] hover:opacity-90";
+              opacity = 0.85;
+              translateX = "88%";
+              filter = "blur(2.2px)";
+              shadowClass = "shadow-[0_12px_28px_-10px_rgba(0,0,0,0.65)] hover:opacity-100";
             } else if (offset === -3) {
-              // Smooth exit/entry buffer left
               scale = 0.65;
               zIndex = 0;
               opacity = 0;
-              translateX = "-165%";
+              translateX = "-120%";
+              filter = "blur(6px)";
             } else if (offset === 3) {
-              // Smooth exit/entry buffer right
               scale = 0.65;
               zIndex = 0;
               opacity = 0;
-              translateX = "165%";
+              translateX = "120%";
+              filter = "blur(6px)";
             }
 
             return (
@@ -284,11 +308,14 @@ export function ProductGrid({
                   transform: `translateX(${translateX}) scale(${scale})`,
                   zIndex,
                   opacity,
+                  filter,
+                  WebkitBackfaceVisibility: "hidden",
+                  backfaceVisibility: "hidden",
                   transition: isTransitioning
-                    ? "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease, box-shadow 500ms ease"
+                    ? "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease, box-shadow 500ms ease, filter 500ms ease"
                     : "none",
                 }}
-                className={`absolute cursor-pointer w-[280px] sm:w-[320px] md:w-[335px] rounded-[28px] sm:rounded-[32px] ${shadowClass} ${
+                className={`absolute cursor-pointer w-[270px] sm:w-[305px] md:w-[320px] rounded-[28px] sm:rounded-[32px] ${shadowClass} ${
                   offset !== 0 ? "[&_a]:pointer-events-none [&_button]:pointer-events-none" : ""
                 }`}
               >
@@ -300,57 +327,6 @@ export function ProductGrid({
               </div>
             );
           })}
-        </div>
-
-        {/* ================= CONTROLS ROW ================= */}
-        <div className="flex items-center gap-4 sm:gap-5 mt-4 z-40">
-          <button
-            onClick={prevSlide}
-            className="w-11 h-11 rounded-full bg-[#150f2e]/90 hover:bg-primary text-white border border-purple-500/30 flex items-center justify-center transition-all shadow-xl hover:scale-110 active:scale-95 group"
-            title="Previous product"
-            aria-label="Previous product"
-          >
-            <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
-          </button>
-
-          {/* Indicator Dots */}
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#150f2e]/70 border border-purple-500/20 backdrop-blur-md">
-            {products.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  const targetOffset = i - normalizedActiveIndex;
-                  goToOffset(targetOffset);
-                }}
-                className={`transition-all duration-300 rounded-full ${
-                  i === normalizedActiveIndex
-                    ? "w-8 h-2.5 bg-gradient-to-r from-purple-500 to-violet-400 shadow-md shadow-purple-500/50"
-                    : "w-2.5 h-2.5 bg-purple-900/60 hover:bg-purple-600"
-                }`}
-                title={`Go to product ${i + 1}`}
-                aria-label={`Go to product ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={nextSlide}
-            className="w-11 h-11 rounded-full bg-[#150f2e]/90 hover:bg-primary text-white border border-purple-500/30 flex items-center justify-center transition-all shadow-xl hover:scale-110 active:scale-95 group"
-            title="Next product"
-            aria-label="Next product"
-          >
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-          </button>
-
-          {/* Continuous Cycle Play/Pause Button */}
-          <button
-            onClick={() => setIsPaused((prev) => !prev)}
-            className="w-9 h-9 rounded-full bg-[#150f2e]/80 border border-purple-500/30 text-purple-300 hover:text-white hover:bg-primary flex items-center justify-center transition-all shadow-md ml-1"
-            title={isPaused ? "Resume continuous rotation" : "Pause rotation"}
-            aria-label={isPaused ? "Resume continuous rotation" : "Pause rotation"}
-          >
-            {isPaused ? <Play className="w-3.5 h-3.5 ml-0.5" /> : <Pause className="w-3.5 h-3.5" />}
-          </button>
         </div>
       </div>
     );

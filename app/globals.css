@@ -38,6 +38,7 @@
 }
 
 body {
+  font-family: var(--font-heading), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   color: var(--foreground);
   background: var(--background);
   font-feature-settings: "rlig" 1, "calt" 1;

@@ -19,14 +19,17 @@ export default async function FAQPage() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-purple-600/15 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 text-center mb-14">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-300 text-xs font-semibold mb-4 backdrop-blur-md shadow-sm">
-          <HelpCircle className="w-3.5 h-3.5 text-purple-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/25 text-purple-700 dark:text-purple-300 text-xs font-semibold mb-4 backdrop-blur-md shadow-sm">
+          <HelpCircle className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
           <span>Knowledge & Help Center</span>
         </div>
-        <h1 className="font-heading text-2xl sm:text-4xl font-bold text-white tracking-tight">
-          Frequently Asked <span className="bg-gradient-to-r from-purple-400 via-violet-300 to-fuchsia-400 bg-clip-text text-transparent">Questions</span>
+        <h1 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+          Frequently Asked{" "}
+          <span className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 dark:from-purple-400 dark:via-violet-300 dark:to-fuchsia-400 bg-clip-text text-transparent">
+            Questions
+          </span>
         </h1>
-        <p className="text-xs sm:text-sm text-zinc-400 max-w-lg mx-auto mt-2.5 leading-relaxed">
+        <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 max-w-lg mx-auto mt-2.5 leading-relaxed">
           Everything you need to know about our digital templates, licenses, payment gateways, and download tokens.
         </p>
       </div>
@@ -35,21 +38,21 @@ export default async function FAQPage() {
         {faqs.map((faq, idx) => (
           <details
             key={faq._id}
-            className="group p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#120c2b]/95 via-[#0e0824]/95 to-[#0a061c]/95 border border-purple-500/20 hover:border-purple-500/50 open:border-purple-500/60 open:bg-[#150e32]/95 shadow-lg shadow-black/40 hover:shadow-xl hover:shadow-purple-950/40 transition-all duration-300 overflow-hidden"
+            className="group p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white dark:bg-gradient-to-r dark:from-[#120c2b]/95 dark:via-[#0e0824]/95 dark:to-[#0a061c]/95 border border-purple-100 dark:border-purple-500/20 hover:border-purple-300 dark:hover:border-purple-500/50 open:border-purple-400 dark:open:border-purple-500/60 open:bg-purple-50/50 dark:open:bg-[#150e32]/95 shadow-md shadow-purple-900/5 dark:shadow-black/40 hover:shadow-xl transition-all duration-300 overflow-hidden"
           >
-            <summary className="font-heading font-semibold text-sm sm:text-base text-slate-100 group-hover:text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <summary className="font-heading font-semibold text-sm sm:text-base text-slate-800 dark:text-slate-100 group-hover:text-purple-700 dark:group-hover:text-white cursor-pointer list-none flex items-center justify-between gap-4">
               <div className="flex items-center gap-3.5">
-                <span className="w-7 h-7 rounded-lg bg-purple-500/10 text-purple-300 text-xs font-bold flex items-center justify-center flex-shrink-0 border border-purple-500/20 group-open:bg-primary group-open:text-white transition-colors">
+                <span className="w-7 h-7 rounded-lg bg-purple-100 dark:bg-purple-500/10 text-purple-700 dark:text-purple-300 text-xs font-bold flex items-center justify-center flex-shrink-0 border border-purple-200 dark:border-purple-500/20 group-open:bg-primary group-open:text-white transition-colors">
                   {idx < 9 ? `0${idx + 1}` : idx + 1}
                 </span>
                 <span>{faq.question}</span>
               </div>
-              <div className="w-8 h-8 rounded-full bg-purple-500/10 group-open:bg-primary text-purple-300 group-open:text-white border border-purple-500/25 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-open:rotate-90 shadow-sm">
+              <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-500/10 group-open:bg-primary text-purple-700 dark:text-purple-300 group-open:text-white border border-purple-200 dark:border-purple-500/25 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-open:rotate-90 shadow-sm">
                 <ChevronRight className="w-4 h-4" />
               </div>
             </summary>
-            <div className="mt-4 pt-4 border-t border-purple-500/15 pl-10 pr-2">
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            <div className="mt-4 pt-4 border-t border-purple-100 dark:border-purple-500/15 pl-10 pr-2">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-300 leading-relaxed">
                 {faq.answer}
               </p>
             </div>

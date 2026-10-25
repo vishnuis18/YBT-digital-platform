@@ -12,13 +12,18 @@ export function MobileAppBar() {
 
   return (
     <div className="md:hidden sticky top-0 z-30 w-full bg-white/60 dark:bg-[#070510]/55 backdrop-blur-md border-b border-slate-200/80 dark:border-[#22183c] px-4 py-3 flex items-center justify-between transition-colors">
-      <Link href="/" className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded-lg bg-[#6432a3] flex items-center justify-center text-white shadow-sm">
-          <Sparkles className="w-4 h-4" />
+      <Link href="/" className="flex items-center gap-2.5">
+        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#7a3cdb] via-[#6432a3] to-[#482082] border border-purple-400/30 flex items-center justify-center text-white shadow-md shadow-purple-900/40">
+          <Sparkles className="w-4 h-4 text-purple-100" />
         </div>
-        <span className="font-semibold text-base tracking-tight text-slate-900 dark:text-white">
-          <span className="text-[#9d7cf4] dark:text-[#b49bfa] font-bold">YBT</span> Digital
-        </span>
+        <div className="flex items-center font-heading">
+          <span className="text-base font-bold tracking-tight bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-700 dark:from-purple-400 dark:via-violet-400 dark:to-indigo-400 bg-clip-text text-transparent">
+            YBT
+          </span>
+          <span className="text-base font-bold text-slate-900 dark:text-white tracking-tight ml-1">
+            Digital
+          </span>
+        </div>
       </Link>
 
       <div className="flex items-center gap-2">
